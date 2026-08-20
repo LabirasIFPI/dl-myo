@@ -66,6 +66,18 @@ class InfluxClient(MyoClient):
                     p.field(f"{k}.{i}", vv)
         await self.write_point(p)
 
+    async def on_aggregated_data(self, ad):
+        pass
+
+    async def on_classifier_event(self, ce):
+        pass
+
+    async def on_emg_data(self, emg):
+        pass
+
+    async def on_motion_event(self, me):
+        pass
+
 
 async def main(args: argparse.Namespace):
     logging.info("scanning for a Myo device...")

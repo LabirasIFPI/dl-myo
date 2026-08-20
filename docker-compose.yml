@@ -20,7 +20,7 @@ services:
       - DOCKER_INFLUXDB_INIT_RETENTION=1w
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=super-secret-auth-token
     volumes:
-      - $PWD/examples/influxdb/data:/var/lib/influxdb2
-      - $PWD/examples/influxdb/config:/etc/influxdb2
+      - ./examples/influxdb/data:/var/lib/influxdb2
+      - ./examples/influxdb/config:/etc/influxdb2
     ports:
       - 8086:8086

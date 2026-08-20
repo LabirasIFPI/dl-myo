@@ -10,6 +10,7 @@ from myo.types import (
     ClassifierEvent,
     ClassifierMode,
     EMGData,
+    EMGDataSingle,
     EMGMode,
     FVData,
     IMUData,
@@ -30,6 +31,12 @@ class SampleClient(MyoClient):
 
     async def on_emg_data(self, emg: EMGData):
         # logging.info(emg)
+        pass
+
+    # ---> MÉTODO ADICIONADO AQUI <---
+    async def on_emg_data_aggregated(self, eds: EMGDataSingle):
+        # Descomente a linha abaixo se quiser ver os dados brutos do EMG na tela
+        # logging.info(eds)
         pass
 
     async def on_fv_data(self, fvd: FVData):

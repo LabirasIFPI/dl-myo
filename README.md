@@ -49,8 +49,24 @@ Compared to other Myo libraries/SDKs:
 
 ## Install
 
+To use the library in your own project, simply install it via pip:
+
 ```bash
 pip install dl-myo
+```
+
+**To run the examples in this repository**, clone the code and install it locally in a virtual environment:
+
+```bash
+git clone https://github.com/iomz/dl-myo.git
+cd dl-myo
+python -m venv venv
+
+# Activate the environment
+# On Windows: venv\Scripts\activate
+# On Linux/macOS: source venv/bin/activate
+
+pip install .
 ```
 
 ## Examples
@@ -90,9 +106,26 @@ Make use of the dashboard config `examples/influxdb/myo.json`.
 
 <img width="80%" alt="influxdb" src="https://github.com/iomz/dl-myo/assets/26181/8c5d79f4-f5d8-4e9e-8cab-d5e959972d06">
 
+### 3D IMU Plotting
+
+The `myo_analysis/plot_imu_3d_myo.py` script visualizes the real-time 3D orientation of the Myo Armband using `matplotlib` and quaternions. 
+It uses `multiprocessing` to prevent the UI from blocking the Bluetooth asynchronous event loop.
+
+```bash
+python myo_analysis/plot_imu_3d_myo.py
+```
+
+### Pong Game (Zero-Delay)
+
+The `examples/pong_myo.py` is an interactive Pong game where you control the paddle using the Myo's gyroscope.
+
+```bash
+python examples/pong_myo.py
+```
+
 ### Try the example with Docker
 
-NOTE: The docker example currently doesn't work on macOS.
+NOTE: The docker example currently doesn't work on macOS or Windows (due to missing Bluetooth passthrough).
 
 ```bash
 docker compose pull
